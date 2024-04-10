@@ -1,0 +1,62 @@
+.services {
+	@apply bg-layout-dark py-[32px] sm:py-[48px] md:py-[64px] lg:py-[96px] shadow-section;
+
+	&.bgLayout {
+		@apply bg-layout;
+	}
+	&__container {
+		@apply flex flex-col gap-[32px] md:grid md:grid-cols-2 md:gap-[32px] lg:grid-cols-3 mx-auto max-w-[1440px] px-[16px] sm:px-[32px] md:px-[48px] lg:px-[64px] xl:px-[80px];
+	}
+}
+
+.service {
+	@apply relative rounded-[5px]  sm:max-w-full;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+	&__bg {
+		@apply absolute top-0 left-0 w-full h-full object-cover rounded-[5px];
+		filter: brightness(30%);
+	}
+
+	&__container {
+		@apply relative z-50 h-full p-[16px] sm:p-[24px] text-layout-secondary lg:flex lg:flex-col justify-between items-start;
+
+		.first-box {
+		}
+		h3 {
+			@apply text-[24px] mb-[16px] sm:mb-[24px] sm:text-[32px] md:text-[24px] font-medium lg:text-[32px];
+		}
+
+		img {
+			height: 100px;
+		}
+
+		p {
+			@apply text-[20px] mt-[16px] mb-[16px] sm:mb-[24px] leading-tight sm:text-[24px] md:text-[24px] lg:text-[20px];
+		}
+
+		a:link,
+		a:visited {
+			@apply inline-block p-[10px] bg-primary text-layout text-[20px] uppercase font-semibold rounded-[3px]  sm:text-[24px] sm:py-[16px] sm:px-[24px] lg:text-[20px] lg:p-[10px] xl:text-[24px] xl:p-[16px];
+			transition: background-color 0.3s, color 0.3s;
+		}
+		a:hover,
+		a:active {
+			@apply bg-primary-dark text-layout-darkest;
+		}
+	}
+
+	//! funcionalidad
+
+	&:last-child {
+		@apply md:col-span-2 lg:col-span-1;
+
+		h3 {
+			@apply md:text-[32px] lg:text-[32px];
+		}
+
+		p {
+			@apply md:text-[24px] lg:text-[20px];
+		}
+	}
+}

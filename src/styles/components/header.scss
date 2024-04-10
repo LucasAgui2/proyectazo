@@ -1,0 +1,154 @@
+.header {
+	@apply z-[500] absolute top-0 left-[50%] translate-x-[-50%] h-[100px] w-screen flex items-center justify-between;
+
+	&__container {
+		@apply mx-auto max-w-[1500px] w-full flex items-center justify-between px-[16px] sm:px-[32px] md:px-[48px] lg:px-[64px] xl:px-[128px];
+	}
+	&__logo-link {
+		@apply flex gap-[4px] z-[500] min-w-max items-center;
+		p {
+			@apply flex flex-col text-[20px] text-layout-secondary uppercase;
+		}
+	}
+
+	&__mobile-nav {
+		@apply relative z-[500] w-[64px] h-[64px];
+		button {
+			svg {
+				@apply w-[64px] h-[64px] fill-layout-secondary cursor-pointer;
+			}
+		}
+
+		.menu {
+			@apply transition-all ease-in delay-150 opacity-100  pointer-events-auto visible;
+
+			&.open {
+				@apply opacity-0 rotate-45 pointer-events-none invisible;
+			}
+		}
+
+		.close {
+			@apply absolute left-0 top-0 transition-all ease-in opacity-0 invisible;
+
+			&.open {
+				@apply delay-150 rotate-[-180deg] opacity-100 pointer-events-auto visible;
+			}
+		}
+	}
+
+	&__nav-links {
+		@apply p-[8px] bg-black z-[450] absolute top-[116px] right-0 w-max h-max md:relative md:h-auto  md:top-auto md:left-auto md:bg-none md:bg-transparent md:text-layout-secondary md:pb-0 md:border-0 text-layout bg-layout-secondary rounded-[9px] transition-all;
+
+		&::before {
+			content: '';
+			@apply z-[-1] absolute left-[80%] top-0 translate-y-[-50%] w-[20px] h-[20px] bg-layout-secondary md:hidden;
+			clip-path: polygon(50% 0, 0 50%, 100% 50%);
+		}
+		&-list {
+			@apply flex flex-col w-max md:flex-row md:text-[20px] lg:text-[24px] md:bg-none md:bg-transparent md:w-full md:items-center md:gap-[24px] text-[32px] bg-layout-secondary rounded-[9px];
+			li:not(.header__dropdown-link) {
+				a:link,
+				a:visited {
+					@apply inline-block w-full px-[16px] pt-[16px] md:px-0 md:pt-0 pb-[12px] md:p-0 font-medium;
+					transition: color 0.3s;
+				}
+
+				&:not(:last-child) {
+					@apply border-b-[2px] border-gray-500 md:pb-0 md:border-b-0;
+				}
+			}
+			.dropdown {
+				@apply p-0;
+			}
+		}
+
+		a:hover:not([data-tab='dl']),
+		a:active:not([data-tab='dl']),
+		button:hover,
+		button:link {
+			@apply text-layout-darkest md:text-primary;
+		}
+	}
+
+	&__dropdown {
+		button {
+			@apply flex items-center gap-[10px] px-[16px] py-[16px] md:px-0 md:py-0 md:gap-[4px] w-full sm:w-auto font-medium;
+			transition: color 0.3s;
+			//! funcionalidad
+			&.selected {
+				@apply md:text-primary bg-primary md:bg-transparent;
+
+				svg {
+					@apply md:fill-primary;
+				}
+			}
+			//!
+			svg {
+				@apply w-[32px] h-[32px] fill-layout md:fill-layout-secondary md:w-[24px] md:h-[24px];
+			}
+		}
+		&-links {
+			@apply flex flex-col bg-layout-secondary text-[18px] text-layout mt-[8px] w-max  md:absolute md:top-[48px] md:left-[25%] md:rounded-[9px];
+
+			&::before {
+				content: '';
+				@apply hidden md:block z-[-1] rotate-45 absolute left-[16px] top-[2px] translate-y-[-50%] w-[20px] h-[20px] bg-layout-secondary md:rounded-[5px];
+			}
+			li {
+				transition: border-color 0.3s;
+				&:first-child {
+					@apply border-t-[2px] border-t-layout rounded-none;
+					@media (min-width: 768px) {
+						border-top-color: transparent !important;
+					}
+				}
+				&:not(:last-child) {
+					@apply border-b-2 border-gray-300;
+				}
+				&:hover {
+					@apply border-layout-darkest;
+				}
+			}
+
+			a:link,
+			a:visited {
+				position: relative;
+				display: inline-block !important;
+				padding: 16px !important;
+				transition: color 0.3s;
+				z-index: 50;
+			}
+
+			a:hover,
+			a:active {
+				@apply text-layout-darkest;
+			}
+		}
+
+		//! funcionalidad
+		li.selected {
+			@apply bg-primary text-layout-darkest font-semibold;
+		}
+		li:first-child.selected {
+			@apply md:rounded-t-[9px];
+		}
+		li:last-child.selected {
+			@apply md:rounded-b-[9px];
+		}
+	}
+
+	&__nav-links {
+		@apply opacity-0 translate-x-[0]  translate-y-[-50%] md:opacity-100 md:translate-y-[0] md:translate-x-0;
+		&.open {
+			@apply opacity-100 translate-x-[-16px] translate-y-[0] md:translate-x-[0];
+		}
+	}
+
+	&.open {
+		@apply fixed bg-layout-darkest;
+	}
+	&.isFixed {
+		@apply fixed bg-layout-darkest;
+	}
+	//!
+}

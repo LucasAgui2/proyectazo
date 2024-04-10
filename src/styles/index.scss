@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+	:root {
+		--color-primary: 48deg 100% 73%;
+		--color-primary-dark: 48deg 100% 59%;
+		--layout-primary-darkest: 240deg 3% 6%;
+		--layout-primary-dark: 240deg 3% 11%;
+		--layout-primary: 220deg 4% 16%;
+		--layout-primary-light: 0deg 0% 68%;
+
+		--layout-secondary: 0deg 0% 100%;
+
+		// box shadow
+		--boxShadow-section: 0 4px 48px rgba(0, 0, 0, 0.5);
+	}
+}
+@import './abstracts/variables';
+@import './abstracts/keyframes';
+
+@import './utils/base';
+@import './utils/typography';

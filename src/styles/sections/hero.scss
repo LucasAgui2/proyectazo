@@ -1,0 +1,142 @@
+.hero {
+	@apply relative shadow-section;
+
+	&__container {
+		@apply mx-auto max-w-[1440px] px-[16px] sm:px-[32px] md:px-[48px] lg:px-[64px] xl:px-[128px] pt-[132px] sm:pt-[148px] md:pt-[164px] lg:pt-[196px] pb-[32px] sm:pb-[48px] md:pb-[64px] lg:pb-[96px] text-layout-secondary md:grid md:justify-between md:items-center md:gap-[32px] overflow-hidden z-[50];
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr min-content;
+		}
+	}
+	&__bg {
+		@apply absolute w-full h-full top-[0] left-[0] z-[-1];
+
+		img {
+			@apply w-full h-full object-cover scale-105;
+			filter: brightness(30%) blur(3px);
+		}
+	}
+
+	&__text-box {
+		@apply self-stretch flex flex-col items-start;
+
+		.second-box {
+			@apply lg:h-full flex flex-col justify-between items-start;
+		}
+	}
+	h1 {
+		@apply text-[32px] font-semibold leading-tight sm:text-[48px];
+	}
+
+	span {
+		@apply block text-[24px] opacity-80 leading-tight mb-[32px] sm:text-[32px];
+	}
+
+	p {
+		@apply text-[24px] leading-[1.05] mb-[24px] sm:text-[32px] sm:mb-[32px];
+	}
+
+	.cta {
+		@apply bg-primary relative inline-block py-[16px] px-[24px] sm:py-[24px] sm:px-[32px]  text-layout text-[20px] uppercase font-semibold mb-[32px] md:mb-0 sm:text-[24px] rounded-full;
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+		transition: background-color 0.3s, transform 0.2s ease-out;
+		// &::before {
+		// 	content: '';
+		// 	@apply absolute top-0 left-0 w-full h-full scale-100 bg-primary-dark z-[-1] rounded-full opacity-100;
+		// 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+		// 	transition: all 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+		// }
+		&:hover,
+		&:active {
+			@apply bg-primary-dark translate-y-[-2px];
+			// &::before {
+			// 	@apply scale-y-[145%] scale-x-125 opacity-0;
+			// }
+		}
+	}
+
+	//! funcionalidad imagen
+	&.noImage .cta {
+		@apply mb-0;
+	}
+
+	//? IMÁGENES
+
+	&__images {
+		img {
+			@apply object-cover;
+		}
+	}
+	&__images.default {
+		@apply relative h-full min-h-[250px] w-[300px] md:min-h-[350px] md:max-w-[350px] lg:w-[400px] lg:min-h-[400px] lg:max-w-[400px];
+		img {
+			@apply absolute max-w-[200px] h-[200px] md:max-w-[250px] md:max-h-[250px] md:h-[250px];
+			box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			filter: brightness(80%);
+			transition: filter 0.3s, transform 0.2s ease-in;
+			&:hover {
+				filter: brightness(100%);
+				z-index: 100;
+				outline: 4px solid hsl(var(--color-primary));
+			}
+		}
+
+		.hero__images-image-1 {
+			@apply top-[0%] left-[0] md:top-[40%] md:translate-y-[-40%] lg:top-[50px] lg:translate-y-0  hover:scale-105;
+			z-index: 50;
+		}
+		.hero__images-image-2 {
+			@apply top-[50px] left-[50px] md:translate-x-0 md:left-[50px] md:top-[60%] lg:left-[150px] lg:top-[100px] lg:translate-y-0 lg:translate-x-0 md:translate-y-[-60%] hover:scale-105;
+			z-index: 30;
+		}
+
+		.hero__images-image-3 {
+			@apply top-[25px] left-[100px] md:left-[25px] md:top-[90%] md:translate-y-[-90%] lg:top-[100%] lg:translate-y-[-100%]  hover:scale-105;
+		}
+	}
+	&__images.double {
+		@apply relative h-full min-h-[250px] w-[300px] md:min-h-[350px] md:max-w-[350px] lg:w-[400px] lg:min-h-[400px] lg:max-w-[400px];
+		img {
+			@apply absolute max-w-[200px] h-[200px] md:max-w-[250px] md:max-h-[250px] md:h-[250px] lg:max-w-[300px] lg:max-h-[300px];
+			box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			filter: brightness(80%);
+			transition: filter 0.3s, transform 0.2s ease-in;
+			&:hover {
+				filter: brightness(100%);
+				z-index: 100;
+				outline: 4px solid hsl(var(--color-primary));
+			}
+		}
+
+		.hero__images-image-1 {
+			@apply top-[0%] md:top-[40%] md:translate-y-[-40%] lg:top-[50px] lg:translate-y-0 left-[0] hover:scale-105;
+			z-index: 50;
+		}
+		.hero__images-image-2 {
+			@apply top-[50px] left-[200px] translate-x-[-50%] md:left-[100px] md:top-[60%] lg:left-[100px] lg:top-[150px] lg:translate-y-0 lg:translate-x-0 md:translate-y-[-60%] hover:scale-105 md:translate-x-[-25%];
+			z-index: 30;
+		}
+	}
+	&__images.single {
+		@apply max-w-[450px] max-h-[400px] min-h-[200px] relative w-full h-[45vw] md:h-[350px] md:min-w-[350px] lg:h-[400px] lg:min-w-[450px];
+		img {
+			@apply absolute w-full h-full;
+
+			box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			filter: brightness(80%);
+			transition: filter 0.3s, transform 0.2s ease-in;
+			&:hover {
+				filter: brightness(100%);
+				z-index: 100;
+				outline: 4px solid hsl(var(--color-primary));
+			}
+		}
+
+		.hero__images-image-1 {
+			@apply top-[0%] md:top-[0] left-[0] hover:scale-105;
+			z-index: 50;
+		}
+	}
+}

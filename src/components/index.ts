@@ -1,0 +1,11 @@
+export { Header } from './header';
+export { Heading } from './heading';
+export { Footer } from './footer';
+export { FixedWhatsapp } from './fixedWhatsapp';
+export { LandingHero } from './landingHero';
+export { HeroLink } from './heroLink';
+export { LandingHeroLink } from './landingHeroLink';
+export { CopyTextButton } from './copyTextButton';
+export { EmailTemplate } from './emailTemplate';
+export { Spinner } from './spinner';
+export { BlurHeroImage } from './blurHeroImage';

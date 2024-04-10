@@ -1,0 +1,137 @@
+.footer {
+	@apply overflow-hidden bg-layout-darkest pt-[32px] sm:pt-[48px] md:pt-[64px] lg:pt-[96px] pb-[24px] lg:pb-[32px];
+
+	&__container {
+		@apply max-w-[1500px] md:grid md:gap-[24px] mx-auto  px-[16px] sm:px-[32px] md:px-[48px] lg:px-[64px] xl:px-[128px]  lg:justify-center text-layout-secondary;
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr min-content;
+		}
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.first-box {
+			@apply md:flex md:justify-between md:gap-[24px];
+		}
+
+		.second-box {
+			@apply md:justify-end md:flex lg:justify-between;
+		}
+
+		.copy {
+			@apply text-[20px] text-center col-span-2;
+		}
+	}
+
+	&__nav,
+	&__contact,
+	&__contact-md,
+	&__media {
+		h3 {
+			@apply text-[24px] md:text-[20px] xl:text-[28px] mb-[16px] font-medium uppercase;
+		}
+
+		ul {
+			@apply flex flex-col gap-[8px];
+
+			li {
+				@apply h-[40px];
+			}
+		}
+
+		a:link,
+		a:visited,
+		button {
+			@apply text-[20px] md:text-[18px] xl:text-[24px];
+			transition: color 0.3s;
+		}
+
+		a:hover,
+		a:active,
+		button:hover {
+			@apply text-primary;
+		}
+	}
+	&__logo {
+		@apply mx-auto w-max py-[16px] md:py-0 md:mx-0 md:w-auto;
+		a:link,
+		a:visited {
+			@apply flex items-start gap-[4px] z-[500] min-w-max;
+			p {
+				@apply flex flex-col text-[20px] md:text-[18px] xl:text-[24px] text-layout-secondary uppercase font-medium;
+			}
+		}
+	}
+
+	&__nav {
+		@apply text-center py-[16px] md:py-0 md:text-left md:mx-0 md:mx-auto;
+		h3 {
+			@apply md:block;
+		}
+		ul {
+			@apply flex-row justify-center uppercase;
+		}
+	}
+
+	&__contact,
+	&__contact-md {
+		@apply text-center py-[16px] md:py-0 md:text-left md:mx-0 lg:mx-auto;
+		a:link,
+		a:visited,
+		button {
+			@apply flex gap-[4px] items-center;
+		}
+		svg {
+			@apply w-[32px] h-[32px] fill-layout-secondary;
+		}
+		li {
+			@apply flex justify-center md:block;
+		}
+		a:link,
+		a:visited,
+		button {
+			@apply w-max md:w-full;
+		}
+
+		.mail {
+		}
+	}
+
+	&__media,
+	&__media-md {
+		@apply text-center py-[16px] md:py-0 md:text-left;
+
+		ul {
+			@apply justify-center md:justify-start flex-row gap-[16px];
+		}
+		a:link,
+		a:visited {
+			svg {
+				@apply w-[40px] h-[40px] fill-layout-secondary;
+				transition: fill 0.3s;
+			}
+		}
+
+		a:hover,
+		a:active {
+			svg {
+				fill: hsl(var(--color-primary)) !important;
+			}
+		}
+	}
+	// !funcionalidad MD
+	&__contact {
+		@apply md:hidden lg:block;
+	}
+	&__contact-md {
+		@apply hidden md:flex md:flex-col md:items-center md:col-span-2 lg:hidden;
+
+		li {
+			a:link,
+			a:visited {
+				@apply flex justify-center;
+			}
+		}
+	}
+}

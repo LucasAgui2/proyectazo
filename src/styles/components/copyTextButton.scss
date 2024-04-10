@@ -1,0 +1,47 @@
+.copyTextButton {
+	@apply relative;
+	&__message {
+		@apply hidden absolute left-[50%] top-[100%] translate-y-[16px] translate-x-[-50%] p-[10px] rounded-full;
+		span {
+			@apply whitespace-nowrap;
+		}
+		svg {
+			@apply w-[24px] h-[24px];
+		}
+		//! funcionalidad
+		&.show {
+			@apply flex gap-[4px] items-center;
+		}
+	}
+
+	//! funcionalidad
+	&.primary {
+		@apply text-primary bg-layout-darkest;
+
+		.copyTextButton__message {
+			@apply fill-primary;
+		}
+	}
+
+	&.layout {
+		@apply text-layout-secondary bg-layout-darkest;
+
+		.copyTextButton__message {
+			@apply text-layout bg-primary;
+			svg {
+				@apply fill-layout;
+			}
+		}
+	}
+
+	&.secondary {
+		@apply text-layout bg-layout-secondary;
+
+		.copyTextButton__message {
+			@apply bg-layout-darkest text-layout-secondary;
+			svg {
+				@apply fill-layout-secondary;
+			}
+		}
+	}
+}

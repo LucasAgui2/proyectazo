@@ -1,0 +1,24 @@
+.heading {
+	@apply mx-auto max-w-[1240px] xl:px-[160px] px-[16px] sm:px-[32px] md:px-[48px] lg:px-[64px] pb-[16px] sm:pb-[24px] md:pb-[32px] lg:pb-[48px];
+
+	&.isLarge {
+		@apply max-w-[1440px] xl:px-[80px];
+	}
+	h2 {
+		@apply mb-[8px] text-[28px] sm:text-[32px] md:text-[48px] xl:text-[64px] leading-tight font-medium text-primary;
+		&.primary {
+			color: hsl(var(--color-primary));
+		}
+		&.layout {
+			color: hsl(var(--layout-primary));
+		}
+	}
+
+	p {
+		@apply leading-tight text-[20px] sm:text-[24px] lg:text-[32px] text-layout-secondary;
+
+		&.layout {
+			color: hsl(var(--layout-primary));
+		}
+	}
+}

@@ -1,0 +1,87 @@
+.contact {
+	@apply bg-primary py-[32px] sm:py-[48px] md:py-[64px] lg:py-[96px] shadow-section;
+	&.paddingLarge {
+		@apply pt-[132px] sm:pt-[148px] md:pt-[164px] lg:pt-[196px];
+	}
+	&__container {
+		@apply px-[16px] md:flex md:gap-[48px] md:justify-center;
+	}
+
+	&__links {
+		@apply md:w-full  md:max-w-[400px] lg:max-w-[400px] md:mb-[0] mb-[32px] flex flex-col items-center gap-[16px] text-layout text-center text-[16px] sm:text-[20px];
+
+		a:link,
+		a:visited,
+		button {
+			@apply max-w-[400px] sm:max-w-[500px] flex flex-col gap-[8px] items-center bg-layout-secondary w-full p-[16px] border-[2px] border-layout border-solid rounded-[5px];
+			box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s;
+			svg {
+				@apply fill-layout w-[32px] h-[32px];
+			}
+		}
+		a:hover,
+		a:active,
+		button:hover {
+			@apply bg-primary-dark;
+		}
+	}
+
+	.form {
+		@apply max-w-[400px] sm:max-w-[500px] md:max-w-[400px] lg:max-w-[500px] md:mx-0 md:w-full  p-[16px] mx-auto flex flex-col gap-[16px] text-layout-secondary bg-layout rounded-[5px];
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+		&__input-container {
+			@apply flex flex-col gap-[8px];
+
+			label {
+				@apply text-[16px] md:text-[20px];
+				order: 0;
+
+				span {
+					@apply text-primary-dark pl-[4px];
+				}
+			}
+
+			input,
+			textarea {
+				@apply p-[8px] rounded-[3px] text-layout text-[16px] sm:text-[20px];
+				order: 1;
+
+				&::placeholder {
+					@apply text-layout-light text-[16px] sm:text-[20px];
+				}
+			}
+		}
+
+		button {
+			@apply bg-primary-dark w-full text-[16px] sm:text-[24px] p-[12px] font-semibold text-layout-dark rounded-full;
+			transition: background-color 0.3s;
+			&:hover {
+				@apply bg-layout-secondary;
+			}
+			//! funcionalidad
+			&.disabled {
+				@apply bg-layout-light text-layout-darkest;
+			}
+			&.sended {
+				@apply bg-layout-light;
+
+				&:hover {
+					@apply bg-layout-light;
+				}
+			}
+		}
+
+		.spinner {
+			@apply flex items-center gap-[8px] mx-auto text-[20px] sm:text-[24px];
+		}
+	}
+	&__errorMessage {
+		@apply text-[20px] text-center leading-tight;
+		a:link,
+		a:visited {
+			@apply text-primary;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.company {
+	@apply shadow-section px-[16px] sm:px-[32px] py-[32px] sm:py-[48px] md:py-[64px] lg:py-[96px] bg-layout-dark;
+	&__container {
+		@apply mx-auto max-w-[900px] lg:max-w-[1440px] p-[16px] sm:p-[24px] bg-layout text-layout-secondary rounded-[5px] md:rounded-none;
+		@media (min-width: 768px) {
+			@apply grid gap-[24px] items-center;
+			grid-template-columns: 40% 60%;
+		}
+		@media (min-width: 1024px) {
+			@apply gap-[48px] p-[48px];
+		}
+
+		.first-box {
+			@apply md:order-2 md:pr-[24px];
+		}
+		h3 {
+			@apply text-[24px] sm:text-[32px] font-semibold mb-[16px];
+		}
+
+		p {
+			@apply text-[16px] sm:text-[20px] md:text-[16px] mb-[16px] md:mb-0 lg:text-[20px] leading-normal;
+			span {
+				@apply block py-[8px];
+			}
+			a:link,
+			a:visited {
+				@apply text-primary;
+			}
+		}
+
+		img {
+			@apply w-full h-[200px] md:h-[65%] lg:h-[75%] rounded-[5px] md:order-1 object-cover;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+		}
+	}
+}
